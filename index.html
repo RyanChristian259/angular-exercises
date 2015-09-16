@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+ <meta charset="utf-8">
+ <title>Hello, World!</title>
+ <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+ <link rel='stylesheet' href="css/main.css" rel="stylesheet" />
+</head>
+<div class='wrapper'>
+
+
+<div ng-controller="RedditController">
+
+   <div class="form-horizontal col-sm-12">
+     Title
+     <input type="text" class="form-control" placeholder="title" id="title" ng-model="title">
+   </div>
+   <div class="form-group col-sm-12">
+     Author
+     <input type="text" class="form-control" placeholder="author" id="author" ng-model="author">
+   </div>
+    <div class="form-group col-sm-12">
+     Image Url
+     <input type="text" class="form-control" placeholder="imageURL" id="imageURL" ng-model="imageURL">
+   </div>
+   <div class="form-group col-sm-12">
+     Description
+     <input type="text" class="form-control" placeholder="description" id="description" ng-model="description">
+   </div>
+   <div class="form-group col-sm-2">
+   <button class='btn btn-default' ng-click='addPosts()'>Add Posts</button>
+  </div>
+</form>
+
+
+<div class="col-sm-10">
+ <h2>Posts</h2>
+ <table class="table table-striped">
+   <thead>
+     <tr>
+       <th>Title</th>
+       <th>Author</th>
+       <th>Image</th>
+       <th>Description</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr ng-repeat="thing in posts | filter:searchText">
+       <td>
+        {{thing.title}}
+       </td>
+       <td>
+        {{thing.author}}
+       </td>
+       <td>
+        {{thing.imageURL}}
+       </td>
+        <td>
+        {{thing.description}}
+       </td>
+     </tr>
+
+   </tbody>
+ </table>
+
+
+
+
+
+
+ </div>
+
+
+<br/><br/><br/><br/>
+<br/><br/><br/><br/>
+  <br/><br/><br/><br/>
+  <br/><br/><br/><br/>
+<br/><br/><br/><br/>
+  <br/><br/><br/><br/>
+ <br/><br/><br/><br/>
+<br/><br/><br/><br/>
+  <br/><br/><br/><br/>
+<br/>
+<div ng-controller="ExercisesController">
+<h1>Ping Pong Scorekeeper</h1>
+   <div class="box1" ng-class="{green: box1Counter>12}">
+     <p>player 1 score: {{box1Counter}}</p>
+     <button type="submit" class="btn btn-default" ng-click="box1PlusOne()">Player 1 Point</button>
+   </div>
+   <div class="box2" ng-class="{green: box2Counter>=12}">
+     <p>player 2 score: {{box2Counter}}</p>
+     <button type="submit" class="btn btn-default" ng-click="box2PlusOne()">Player 2 Point</button>
+   </div>
+ </div>
+
+
+
+
+
+<body ng-controller="MainController">
+
+
+
+
+
+  <br/><br/><br/><br/>
+
+  <h1>Contacts App</h1>
+
+  <form class="form-inline" role="form">
+   <div class="form-group col-sm-3">
+     Name
+     <input type="text" class="form-control" placeholder="name" id="name" ng-model="name">
+   </div>
+
+   <div class="form-group col-sm-3">
+     Email
+     <input type="email" class="form-control" placeholder="email" id="email" ng-model="email">
+   </div>
+   <div class="form-group col-sm-3">
+     Phone
+     <input type="number" class="form-control" placeholder="phone" id="phone" ng-model="phone">
+   </div>
+   <div class="form-group col-sm-2">
+   <button ng-click='addContact()'>Add Contact</button>
+  </div>
+</form>
+
+
+<div class="col-sm-10">
+ <h2>Contacts</h2>
+ <table class="table table-striped">
+   <thead>
+     <tr>
+       <th>Name</th>
+       <th>Email</th>
+       <th>Phone</th>
+     </tr>
+  <input type="search" placeholder="search" ng-model="searchText">
+   </thead>
+   <tbody>
+     <tr ng-repeat="thing in contacts | filter:searchText">
+       <td>
+        {{thing.name}}
+       </td>
+       <td>
+        {{thing.email}}
+       </td>
+       <td>
+        {{thing.phone}}
+       </td>
+     </tr>
+
+   </tbody>
+ </table>
+</div>
+<br/><br/><br/><br/>
+<br/><br/><br/><br/>
+  <br/><br/><br/><br/>
+  <br/><br/><br/><br/>
+  <br/><br/><br/><br/>
+
+
+
+<br/><br/>
+<button ng-click="pickRandomNumber()">Pick Random Number</button>
+<h3>The number is: {{number}}</h3>
+<br/><br/><br/><br/>
+
+
+<!--    <ul>
+ <li ng-repeat="name in names">
+   {{name}}
+  </li>
+</ul> -->
+
+<!--    <ul>
+ <li ng-repeat="symbol in symbols">
+   {{symbol}}
+  </li>
+</ul>
+
+<ul>
+ <li ng-repeat="num in dupes track by $index">
+   <p>{{num}}</p>
+  </li>
+</ul> -->
+<h1>Camera Shop</h1>
+<ul>
+ <li ng-repeat="camera in cameras">
+   <p>{{camera.title}}</p>
+   <p>{{camera.rating}}</p>
+   <img ng-src='{{camera.image}}'/>
+   <p>{{camera.price | currency}}</p>
+   <p>{{camera.onSale}}</p>
+   <div ng-if='true' ng-show='{{camera.onSale}}' >On Sale now!</div>
+ </li>
+</ul>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+
+</div>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en" ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>Untitled</title>
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+  </head>
+  <body>
+
+<div ng-controller='MainController'>
+
+<ul ng-repeat="name in names">
+  <li>{{name}}</li>
+</ul>
+
+
+<div class='container'>
+    Name: <input type='text' ng-model='name' /><br/>{{name}}
+</div>
+
+<div>
+  1 + 2 = {{1+2}}
+
+<br/><br/>
+My name is {{'BoJack ' + 'Horseman'}}
+<br/><br/>
+The array [99,43,22] is {{[99,43,22].length}} items long.
+<br/><br/>
+
+
+<h3>How much was your meal?</h3>
+<input type='number' ng-model='mealPrice'>
+
+<label for="name">Select your tip percentage</label>
+       <select class="selectpicker" ng-model="tip">
+         <option value='.15'>15%</option>
+         <option value='.20'>20%</option>
+         <option value='.25'>25%</option>
+       </select>
+<h4>SubTotal  {{ mealPrice | currency  }}</h4>
+<h4>Tip  {{  mealPrice * tip | currency}}</h4>
+<h4>Total  {{  (mealPrice * tip) + mealPrice | currency}}</h4>
+
+<br/>
+<br/>
+
+<h1>Mad Libs</h1>
+<div>
+  <form novalidate class="simple-form" ng-mane='bob'>
+    Name: <input type="text" ng-model="boysName" /><br />
+      Adjective: <input type="text" ng-model="adjective" /><br />
+      Plural Noun: <input type="text" ng-model="plNoun" /><br />
+      An Insect, plural: <input type="text" ng-model="insectPlural" /><br />
+      Plural noun: <input type="text" ng-model="pluralNoun" /><br />
+      A verb ending in "s": <input type="text" ng-model="sVerb" /><br />
+    <input type="submit" ng-click="show=true; $scope.bob.setPristine()" value="Generate" />
+  </form>
+
+<div ng-show='show'>
+ <h3>I'm in love with <span>{{ boysName }}</span>. He's so <span>{{ adjective }}</span>! He has big flat <span>{{ plNoun }}</span>, and when our <span>{{ insectPlural }}</span> meet, I get <span>{{ pluralNoun }}</span> in my stomach. I've fallen for him like a ton of <span>{{ sVerb }}</span>, and he shuffles for me, too. But I think he's got another girlfriend. What should I do?</h3>
+ <input type="submit" ng-click="show=false; $scope.bob.setPristine()" value="Start Over" />
+  </div>
+</div>
+
+
+<br/><br/>
+
+
+</div>
+
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="js/main.js"></script>
+    <script src="angular.min.js"></script>
+  </body>
+</html>
+-->
